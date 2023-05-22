@@ -19,7 +19,9 @@ https://forum.zdoom.org/viewtopic.php?p=1226965#p1226965
 
 ## Credits
 Thank you Gifty for doing all of the dirty work:
+
 https://www.doomworld.com/profile/14161-gifty/
+
 https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=8604
 
 
