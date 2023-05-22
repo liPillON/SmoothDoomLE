@@ -1,0 +1,3 @@
+actor SmoothArchvileFire : ArchvileFire replaces ArchvileFire
+{
+}

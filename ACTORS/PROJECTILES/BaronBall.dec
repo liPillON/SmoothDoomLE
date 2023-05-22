@@ -1,0 +1,14 @@
+ACTOR SmoothBaronBall : BaronBall replaces BaronBall
+{
+    speed 15
+    decal baronscorch
+    states
+    {
+    Spawn:
+        BAL7 AB 4 Bright
+        Loop
+    death:
+        boog abcdefgi 2 bright
+        stop
+    }
+}

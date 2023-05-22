@@ -1,0 +1,77 @@
+ACTOR SmoothCacodemon : Cacodemon replaces Cacodemon
+{
+	Bloodtype Blueblood
+	BloodColor "blue"
+	States
+	{
+	See:
+		HEAD A 3 A_Chase
+		loop
+		HEMI EDCB 3 A_Chase
+		goto see
+
+	Missile:
+		HEMI BC 2 A_FaceTarget
+		HEMI DE 3 A_FaceTarget
+		HEMI F 5 Bright A_HeadAttack
+		TNT1 a 0
+		goto see+2
+
+	Pain:
+		HEAA H 4
+		HEAA G 4 A_Pain
+		HEAA F 4
+		Goto See
+
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(255, "Death1", "Death2")
+		goto Death1
+
+	Death1:
+		TNT1 a 0 A_JumpIfHealthLower(-25,"xdeath")
+		HDSD A 2
+		HDSD B 2 A_Scream
+		HDSD CD 2
+		HDSD E 3 A_NoBlocking
+		HDSD F 3 A_SetFloorClip
+		HDSD GH 3
+		HDSD I -1
+		Stop
+
+	Death2:
+		TNT1 a 0 A_JumpIfHealthLower(-25,"xdeath")
+		HDD2 A 3
+		HDD2 B 3 A_Scream
+		HDD2 CD 3
+		HDD2 E 2 A_NoBlocking
+		HDD2 F 2 A_SetFloorClip
+		HDD2 GHIJK 2
+		HDD2 L -1
+		Stop
+
+	xdeath:
+		CACX ab 2
+		CACX c 2
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		CACX d 2 a_scream
+		CACX ef 2
+		CACX g 2 a_noblocking
+		CACX h 2 a_setfloorclip
+		CACX ijklmnopqr 2
+		CACX s -1
+		stop
+
+	Death.massacre:
+		CACX ab 2
+		CACX c 2
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		CACX d 2 a_scream
+		CACX ef 2
+		CACX g 2 a_noblocking
+		CACX h 2 a_setfloorclip
+		CACX ijklmnopqr 2
+		CACX s -1
+		stop
+	}
+}

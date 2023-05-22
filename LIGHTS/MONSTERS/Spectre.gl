@@ -1,0 +1,12 @@
+pointlight PO_Spectre
+{
+    color 0.5 0.5 0.5
+    size 48
+    offset 0 24 0
+    subtractive 1
+}
+
+object SmoothSpectre
+{
+    frame SARG { light PO_Spectre }
+}

@@ -1,0 +1,23 @@
+flickerlight2 FL_ZombieManAttack1
+{
+    color 1.0 0.8 0.2
+    size 48
+    secondarySize 56
+    interval 1
+    offset 0 40 0
+}
+
+flickerlight2 FL_ZombieManAttack2
+{
+    color 1.0 0.8 0.2
+    size 32
+    secondarySize 40
+    interval 1
+    offset 0 40 0
+}
+
+object SmoothZombieMan
+{
+    frame POSSF { light FL_ZombieManAttack1 }
+    frame POSSG { light FL_ZombieManAttack2 }
+}

@@ -1,0 +1,70 @@
+ACTOR SmoothRevenant : Revenant Replaces Revenant
+{
+	States
+	{
+	Spawn:
+		SKEL AB 10 A_Look
+		Loop
+
+	See:
+		RSKE abcddefghh 2 A_Chase
+		Loop
+
+	Melee:
+		SSKE A 4 A_FaceTarget
+		SSKE B 3 A_SkelWhoosh
+		SSKE C 3
+		SSKE D 3 A_FaceTarget
+		SSKE E 6 A_SkelFist
+		Goto See
+
+	Missile:
+		RMIS a 4 a_facetarget
+		RMIS b 3 a_facetarget
+		RMIS c 3 bright a_facetarget
+		RMIS d 3 bright a_skelmissile
+		RMIS e 3 bright a_facetarget
+		RMIS f 2 A_facetarget
+		RMIS g 3 A_facetarget
+		RMIS h 12 A_facetarget
+		Goto See
+
+	Pain:
+		REVP a 5
+		REVP b 5 A_Pain
+		Goto See
+
+	Death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"xdeath")
+		REVD abc 3
+		REVD d 3 a_scream
+		REVD e 2 a_noblocking
+		REVD e 1
+		REVD fgh 3
+		REVD i -1
+		stop
+
+	xdeath:
+		REDX a 3
+		REDX b 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		REDX c 2 a_scream
+		REDX d 2 a_noblocking
+		REDX efghij 3
+		REDX k -1
+
+	death.massacre:
+		REDX a 3
+		REDX b 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		REDX c 2 a_scream
+		REDX d 2 a_noblocking
+		REDX efghij 3
+		REDX k -1
+
+	Raise:
+		SKEL Q 5
+		SKEL PONML 5
+		Goto See
+	}
+}

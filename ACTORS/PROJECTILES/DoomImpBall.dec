@@ -1,0 +1,29 @@
+ACTOR SmoothDoomImpBall : DoomImpBall replaces DoomImpBall
+{
+Game Doom
+    SpawnID 10
+    Radius 6
+    Height 8
+    Speed 10
+    FastSpeed 20
+    Damage 3
+    Projectile
+    +RANDOMIZE
+    RenderStyle Add
+    decal doomimpscorch
+    Alpha 1
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    spawn:
+        IBSP abc 2 bright
+        BIMP abcdef 3 bright
+        goto spawn+3
+
+    death:
+        BAl1 cde 3 bright
+        BAL1 fghi 2 bright
+        stop
+    }
+}

@@ -1,0 +1,7 @@
+ACTOR SmoothSpectre : SmoothDemon replaces Spectre
+{
+	+SHADOW
+	RenderStyle OptFuzzy
+	Alpha 0.5
+	HitObituary "$OB_SPECTREHIT" // "%o was eaten by a spectre."
+}

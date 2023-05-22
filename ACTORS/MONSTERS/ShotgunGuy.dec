@@ -1,0 +1,82 @@
+ACTOR SmoothShotgunGuy : ShotgunGuy replaces ShotgunGuy
+{
+	States
+	{
+	Spawn:
+		SPOS AB 10 A_Look
+		loop
+
+	See:
+		SPOS ABCDEFGH 3 a_chase
+		Loop
+
+	Missile:
+		SPSR A 1 A_FaceTarget
+	    SPSR AC 2 A_FaceTarget
+		SPSR E 5 A_FaceTarget
+		SPSR F 3 BRIGHT A_SposAttackUseAtkSound
+		SPSR E 2 BRIGHT
+		SPSR CA 3
+		SPSR ABA 3
+		Goto See
+
+	pain:
+		SSPA a 3
+		SSPA b 3 A_pain
+		goto see
+
+	Death:
+		TNT1 A 0 A_Jump(255, "Death1", "Death2")
+		goto Death1
+
+	Death1:
+		SOSS Q 3
+		SOSS R 3 A_Scream
+		SOSS S 3 A_NoBlocking
+		SOSS TU 2
+		SOSS VWX 2
+		SOSS Y -1
+		Stop
+
+	Death2:
+		SO2S A 3
+		SO2S B 3 A_Scream
+		SO2S C 3 A_NoBlocking
+		SO2S DEF 3
+		SO2S GHI 2
+		SO2S JKL 4
+		SO2S M -1
+		Stop
+
+	XDeath:
+		SGIB ab 2
+		SGIB cd 2 A_XScream
+		SGIB e 2 a_noblocking
+		SGIB f 2
+		SGIB ghijklmnop 2
+		SGIB q -1
+		Stop
+
+	Death.massacre:
+		SGIB ab 2
+		SGIB cd 2 A_XScream
+		SGIB e 2 a_noblocking
+		SGIB f 2
+		SGIB ghijklmnop 2
+		SGIB q -1
+		Stop
+
+	NukeMelt:
+		SMEL abcdefghijklmnopq 3
+		stop
+
+	NukeMelt2:
+		SME2 abcdefghijklmnopq 3
+		stop
+
+	Raise:
+		SPOS L 5
+		SPOS KJIH 5
+		Goto See
+	}
+}

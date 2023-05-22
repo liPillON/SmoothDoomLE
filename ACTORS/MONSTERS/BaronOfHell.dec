@@ -1,0 +1,61 @@
+ACTOR SmoothBaronOfHell : BaronOfHell Replaces BaronOfHell
+{
+	+BOSSDEATH
+	Bloodtype greenblood
+	BloodColor "dark green"
+	States
+	{
+	Spawn:
+		BOSS AC 10 A_Look
+		Loop
+
+	See:
+		BOSS A 3 a_chase
+		BOSS BC 3 a_chase
+		BOSS D 2 A_chase
+		BOSS E 3 a_chase
+		BOSS FG 3 a_chase
+		BOSS H 2 a_chase
+		loop
+
+	Melee:
+
+	Missile:
+		zBOS a 4 a_facetarget
+		zBOS abcd 3 a_facetarget
+		zBOS e 4 A_bruisattack
+		zBOS f 4
+		Goto See
+
+	Pain:
+		BARP a  2
+		BARP b  2 A_Pain
+		Goto See
+
+	Death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"Xdeath")
+		BSDS ab 3
+		BSDS c 3 A_scream
+		BSDS defg 3
+		BSDS h 3 A_noblocking
+		BSDS ijkl 3
+		BSDS m -1 a_bossdeath
+		Stop
+
+	Xdeath:
+		XBAR a 3
+		XBAR bc 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		XBAR d 3 a_scream
+		XBAR efgh 3
+		XBAR i 3 a_noblocking
+		XBAR jklmnop 3
+		XBAR q -1 a_bossdeath
+		stop
+
+	Raise:
+		BOSS O 8
+		BOSS NMLKJI  8
+		Goto See
+	}
+}

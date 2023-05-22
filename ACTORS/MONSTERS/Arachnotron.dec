@@ -1,0 +1,36 @@
+ACTOR SmoothArachnotron : Arachnotron replaces Arachnotron
+{
+	states
+	{
+	spawn:
+		ARID ab 5 a_look
+		loop
+
+	see:
+		ARAC a 20
+		ARAC a 3 a_babymetal
+		ARAC bcdee 3 a_chase
+		ARAC f 3 a_babymetal
+		ARAC ghijj 3 a_chase
+		goto see+1
+
+	pain:
+		ARPA a 3
+		ARPA b 3 a_pain
+		goto see+1
+
+	missile:
+		DUMB a 20 a_facetarget
+		ARAT a 3 bright A_BspiAttack
+		ARAT b 3 bright
+		ARAT c 3 bright a_SpidRefire
+		goto missile+1
+
+	death:
+		sarz a 3
+		sarz b 3 a_scream
+		sarz c 3 a_noblocking
+		sarz defghijkl 3
+		sarz m -1 a_bossdeath
+	}
+}

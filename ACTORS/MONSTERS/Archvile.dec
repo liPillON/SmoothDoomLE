@@ -1,0 +1,54 @@
+ACTOR SmoothArchvile : Archvile Replaces Archvile
+{
+	States
+	{
+	Spawn:
+		VILE AB 10 A_Look
+		Loop
+
+	See:
+		VILM abcdeefghijj 2 a_vilechase
+		Loop
+
+	Missile:
+		NVIL a 0 bright a_vilestart
+		NVIL a 3 bright a_facetarget
+		NVIL b 3 bright a_vilestart
+		NVIL cdef 3 bright a_facetarget
+		NVIL f 0 bright a_viletarget
+		NVIL ghij 3 bright a_facetarget
+		NVIL k 24 bright a_facetarget
+		NVIL lmno 3 bright a_facetarget
+		NVIL p 4 bright a_vileattack
+		NVIL q 4 bright
+		NVIL r 20 bright
+		goto see
+
+	Heal:
+		VILE xxyzyxxyzy 3 bright
+		goto see
+
+	Pain:
+		VILP a 3
+		VILP b 7 a_pain
+		Goto See
+
+	Death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"xdeath")
+		VILD A 3
+		VILD B 3 A_Scream
+		VILD C 3 A_NoBlocking
+		VILD DEFGHIJKLM 3
+		VILD M -1
+		Stop
+
+	xdeath:
+		XVIL a 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		XVIL b 2 a_scream
+		XVIL c 2 a_noblocking
+		XVIL defghijklmnop 2
+		XVIL q -1
+		stop
+	}
+}

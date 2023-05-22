@@ -1,0 +1,10 @@
+ACTOR SmoothRevenantTracer : RevenantTracer replaces RevenantTracer
+{
+    decal revenantscorch
+    states
+    {
+    Death:
+    RBXP ABCDEF 2 Bright
+    Stop
+    }
+}

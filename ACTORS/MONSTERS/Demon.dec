@@ -1,0 +1,47 @@
+ACTOR SmoothDemon : Demon replaces Demon
+{
+	States
+	{
+	Spawn:
+		SARG AB 10 fast A_Look
+		Loop
+
+	See:
+		SSRG AABCDDEF 2 fast A_Chase
+		Loop
+
+	Melee:
+		SSRG G 8 fast A_FaceTarget
+		SSRG GGGHIII 1 fast A_FaceTarget
+		SSRG J 1 fast
+		SSRG K 1 fast A_SargAttack
+		SSRG L 4 fast
+		SSRG G 3 fast
+		Goto See
+
+	Pain:
+		SSRG M 2
+		SSRG N 2 A_Pain
+		Goto See
+
+	Death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"xdeath")
+		SSRD A 3
+		SSRD B 3 A_Scream
+		SSRD C 3
+		SSRD D 3 A_NoBlocking
+		SSRD EFGH 3
+		SSRD I -1
+		Stop
+
+	xdeath:
+		SARG o 3
+		SARG p 0 a_playsound ("misc/gibbed")
+		SARG p 3 a_scream
+		SARG q 3
+		SARG r 3 a_noblocking
+		SARG stuvw 3
+		SARG x -1
+		stop
+	}
+}

@@ -1,0 +1,37 @@
+ACTOR SmoothLostSoul : LostSoul replaces LostSoul
+{
+	+NOBLOOD
+	speed 4
+	States
+	{
+	Spawn:
+		zkul abcd 6 bright a_look
+		Loop
+
+	see:
+		ZKUL a 3 bright a_chase
+		ZKUL b 3 bright a_chase ("","")
+		ZKUL c 3 bright a_chase
+		ZKUL d 3 bright a_chase ("","")
+		loop
+
+	missile:
+		ssku abcda 2 bright a_facetarget
+		ssku b 4 bright a_skullattack
+		ssku abcd 2 bright
+		goto missile+6
+
+	Pain:
+		LSTP A 3 Bright
+		LSTP B 3 Bright A_Pain
+		Goto See
+
+	death:
+		ssou ab 3 bright
+		ssou c 3 bright a_scream
+		ssou de 3 bright
+		ssou f 3 bright A_noblocking
+		ssou ghij 3 bright
+		stop
+	}
+}

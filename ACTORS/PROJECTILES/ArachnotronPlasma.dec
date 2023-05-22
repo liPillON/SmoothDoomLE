@@ -1,0 +1,14 @@
+ACTOR SmoothArachnotronPlasma : ArachnotronPlasma replaces ArachnotronPlasma
+{
+decal doomimpscorch
+states
+    {
+    spawn:
+        BAPL abcd 2 bright
+        loop
+
+	death:
+		GPLD abcefghijklm 2 bright
+		stop
+	}
+}

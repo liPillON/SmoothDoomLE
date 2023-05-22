@@ -1,0 +1,41 @@
+pointlight PO_FatShot
+{
+    color 1.0 0.5 0.0
+    size 64
+}
+
+flickerlight FL_FastShot_X1
+{
+    color 1.0 0.7 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+}
+
+flickerlight FL_FastShot_X2
+{
+    color 0.5 0.1 0.0
+    size 80
+    secondarySize 88
+    chance 0.3
+}
+
+flickerlight FL_FastShot_X3
+{
+    color 0.3 0.0 0.0
+    size 96
+    secondarySize 104
+    chance 0.3
+}
+
+object SmoothFatShot
+{
+    frame MANF  { light PO_FatShot }
+
+    frame MISLA { light FL_FastShot_X1 }
+    frame MISLB { light FL_FastShot_X1 }
+    frame MISLC { light FL_FastShot_X2 }
+    frame MISLD { light FL_FastShot_X2 }
+    frame MISLE { light FL_FastShot_X3 }
+    frame MISLF { light FL_FastShot_X3 }
+}

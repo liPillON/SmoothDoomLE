@@ -1,0 +1,50 @@
+Actor SmoothSpiderMastermind : SpiderMastermind replaces SpiderMastermind
+{
+	states
+	{
+	spawn:
+		SPID AB 10 A_Look
+		Loop
+
+	see:
+		SMMA a 3 a_metal
+		SMMA a 3 a_chase
+		SMMA b 3 a_chase
+		SMMA c 3 a_chase
+		SMMA d 3 a_metal
+		SMMA e 3 a_chase
+		SMMA e 3 a_chase
+		SMMA f 3 a_chase
+		SMMA g 3 a_metal
+		SMMA h 3 a_chase
+		SMMA i 3 a_chase
+		SMMA j 3 a_chase
+		loop
+
+	missile:
+		SMMA a 20 a_facetarget
+		SSMA a 2 BRIGHT A_SPosAttackUseAtkSound
+		SSMA b 1
+		SSMA c 1
+		SSMA a 2 BRIGHT A_SPosAttackUseAtkSound
+		SSMA b 1
+		SSMA c 1
+		SSMA c 1 A_SpidRefire
+		goto missile+1
+
+	pain:
+		SPMA a 2
+		SPMA b 2
+		SPMA c 2 a_pain
+		goto see
+
+	death:
+		SDMA a 20 a_scream
+		SDMA b 5
+		SDMA c 5 a_noblocking
+		SDMA defghijklmnopq 4
+		SDMA r 100
+		SDMA r -1 a_bossdeath
+		stop
+	}
+}

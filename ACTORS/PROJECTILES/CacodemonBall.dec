@@ -1,0 +1,14 @@
+ACTOR SmoothCacodemonBall : CacodemonBall replaces CacodemonBall
+{
+decal CacoScorch
+states
+    {
+    spawn:
+    CABA abcd 3 bright
+    loop
+    death:
+    CABX a 4 bright
+    CABX bcdef 3 bright
+    stop
+    }
+}

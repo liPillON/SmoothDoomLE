@@ -1,0 +1,44 @@
+flickerlight FL_CacoBall
+{
+    color 1.0 0.2 0.6
+    size 56
+    secondarySize 64
+    chance 0.5
+}
+
+flickerlight FL_CacoBall_X1
+{
+    color 0.9 0.1 0.4
+    size 72
+    secondarySize 80
+    chance 0.25
+}
+
+flickerlight FL_CacoBall_X2
+{
+    color 0.6 0.0 0.1
+    size 88
+    secondarySize 96
+    chance 0.25
+}
+
+flickerlight FL_CacoBall_X3
+{
+    color 0.3 0.0 0.0
+    size 104
+    secondarySize 112
+    chance 0.25
+}
+
+object SmoothCacodemonBall
+{
+    frame CABA { light FL_CacoBall }
+
+    frame CABXA { light FL_CacoBall_X1 }
+    frame CABXB { light FL_CacoBall_X1 }
+    frame CABXC { light FL_CacoBall_X2 }
+    frame CABXD { light FL_CacoBall_X2 }
+    frame CABXE { light FL_CacoBall_X3 }
+    frame CABXF { light FL_CacoBall_X3 }
+    frame CABXH { light FL_CacoBall_X3 }
+}

@@ -1,0 +1,78 @@
+ACTOR SmoothDoomImp : DoomImp Replaces DoomImp
+{
+	States
+	{
+	Spawn:
+		TRSO AC 10 A_Look
+		Loop
+
+	See:
+		TRSO ABCDEF 3 A_Chase
+		Loop
+
+	Melee:
+
+	Missile:
+		TRSO JI 2 a_facetarget
+		TRSO I 3
+		TRSO KL 3 A_FaceTarget
+		TRSO M 4 A_TroopAttack
+		TRSO LK 2
+		Goto See
+
+	Pain:
+		TRAI a 2
+		TRAI b 2 A_Pain
+		Goto See
+
+	Death:
+		TNT1 A 0 A_Jump(255, "Death1", "Death2")
+		goto Death1
+
+	Death1:
+		5OSS J 2 A_Scream
+		5OSS K 2 A_NoBlocking
+		5OSS LMNO 2
+		5OSS PQR 3
+		5OSS ST 3
+		5OSS U -1
+		Stop
+
+	Death2:
+		TRO2 a 3
+		TRO2 b 3 A_NoBlocking
+		TRO2 cd 3
+		TRO2 e 3 A_Scream
+		TRO2 FGHIJ 2
+		TRO2 kl 3
+		TRO2 M -1
+		stop
+
+	XDeath:
+		TROX ab 2
+		TROX cd 2 a_xscream
+		TROX ef 2
+		TROX gh 2 a_noblocking
+		TROX ijklmn 2
+		TROX o -1
+		stop
+
+	Death.Massacre:
+		TROX ab 2
+		TROX cd 2 a_xscream
+		TROX ef 2
+		TROX gh 2 a_noblocking
+		TROX ijklmn 2
+		TROX o -1
+		stop
+
+	NukeMelt:
+		IMEL abcdefhijklmn 2
+		IMEL opqrstuv 3
+		stop
+
+	Raise:
+		TROO MLKJI 8
+		Goto See
+	}
+}

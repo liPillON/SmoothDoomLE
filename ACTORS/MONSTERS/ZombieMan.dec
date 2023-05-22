@@ -1,0 +1,100 @@
+ACTOR SmoothZombieMan : ZombieMan replaces ZombieMan
+{
+	dropitem none
+	states
+	{
+	Spawn:
+		POSW AB 10 A_Look
+		loop
+
+	See:
+	    POSW ABCDEFGH 3 a_chase
+		loop
+
+	Missile:
+		PSSA A 1 A_FaceTarget
+		PSSA B 2 A_FaceTarget
+		POSS E 7 A_FaceTarget
+		POSS F 3 bright A_PosAttack
+		POSS G 2 bright
+		POSS E 4
+		PSSA B 3
+		PSSA A 4
+		Goto See
+
+	Pain:
+		stro a 3
+		stro b 3 a_pain
+		goto see
+
+	Death:
+		TNT1 A 0 A_Jump(255, "Death1", "Death2")
+		goto Death1
+
+	Death1:
+		5OSS A 3 A_Scream
+		5OSS B 3 A_NoBlocking
+		TNT1 a 0 a_dropitem("clip")
+		5OSS CDEFG 2
+		5OSS HI 3
+		5OSS I -1
+		Stop
+
+	Death2:
+		PSD1 A 2 A_Scream
+		PSD1 B 2 A_NoBlocking
+		PSD1 C 3
+		TNT1 a 0 a_dropitem("clip")
+		PSD1 D 2
+		PSD1 EFG 2
+		PSD1 H 2
+		PSD1 IJKLM 2
+		PSD1 N -1
+		Stop
+
+	XDeath:
+		TGIB ab 2
+		TNT1 a 0 a_dropitem("clip")
+		TGIB cd 2 A_XScream
+		TGIB e 2 a_noblocking
+		TGIB f 2
+		TGIB ghijklmnop 2
+		TGIB q -1
+		Stop
+
+	Death.massacre:
+		TGIB ab 2
+		TNT1 a 0 a_dropitem("clip")
+		TGIB cd 2 A_XScream
+		TGIB e 2 a_noblocking
+		TGIB f 2
+		TGIB ghijklmnop 2
+		TGIB q -1
+		Stop
+
+	NukeMelt:
+		ZMEL abcdefghij 3
+		ZMEL klmnopq 3
+		ZMEL q -1
+		stop
+	NukeMelt2:
+		ZME2 abcde 2
+		ZME2 fghijklmnopqrs 3
+		ZME2 s -1
+		stop
+	LavaMelt:
+		ZLAV abcdefghij 3
+		ZLAV klmnopq 3
+		ZLAV q -1
+		stop
+	LavaMelt2:
+		ZLA2 abcde 2
+		ZLA2 fghijklmnopqrs 3
+		ZLA2 s -1
+		stop
+	Raise:
+		POSS K 5
+		POSS JIH 5
+		Goto See
+	}
+}

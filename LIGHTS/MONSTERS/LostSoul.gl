@@ -1,0 +1,49 @@
+flickerlight FL_LostSoul
+{
+    color 1.0 0.3 0.0
+    size 56
+    secondarysize 64
+    chance 0.1
+}
+
+flickerlight FL_LostSoul_X1
+{
+    color 0.8 0.3 0.0
+    size 72
+    secondarySize 80
+    chance 0.25
+}
+
+flickerlight FL_LostSoul_X2
+{
+    color 0.6 0.2 0.0
+    size 88
+    secondarySize 96
+    chance 0.25
+}
+
+flickerlight FL_LostSoul_X3
+{
+    color 0.4 0.1 0.0
+    size 104
+    secondarySize 112
+    chance 0.25
+}
+
+flickerlight FL_LostSoul_X4
+{
+    color 0.2 0.0 0.0
+    size 112
+    secondarySize 120
+    chance 0.25
+}
+
+object SmoothLostSoul
+{
+    frame SKULA { light FL_LostSoul    }
+
+    frame SKULH { light FL_LostSoul_X1 }
+    frame SKULI { light FL_LostSoul_X2 }
+    frame SKULJ { light FL_LostSoul_X3 }
+    frame SKULK { light FL_LostSoul_X4 }
+}

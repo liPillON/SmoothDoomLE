@@ -1,0 +1,71 @@
+ACTOR SmoothHellKnight: HellKnight Replaces HellKnight
+{
+	Game Doom
+	SpawnID 113
+	Health 500
+	Bloodtype greenblood
+	BloodColor "0 78 0"
+	-BOSSDEATH
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+
+	States
+	{
+	Spawn:
+		BOS2 AB 10 A_Look
+		Loop
+
+	See:
+		BOS2 A 4 a_chase
+		BOS2 B 3 a_chase
+		BOS2 c 2 a_chase
+		BOS2 D 4 A_chase
+		BOS2 C 3 a_chase
+		BOS2 B 2 a_chase
+		loop
+
+	Melee:
+
+	Missile:
+		sBOS a 4 a_facetarget
+		sBOS abcd 3
+		sBOS e 4 A_bruisattack
+		sBOS f 4
+		Goto See
+
+	Pain:
+		PKNI a  2
+		PKNI b  2 A_Pain
+		Goto See
+
+	Death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"xdeath")
+		SKNI b 3
+		SKNI c 3 A_scream
+		SKNI defg 3
+		SKNI h 3 a_noblocking
+		SKNI ijkl 3
+		SKNI m -1
+		Stop
+
+	Xdeath:
+		XKNI a 3
+		XKNI bc 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		XKNI d 3 a_scream
+		XKNI efgh 3
+		XKNI i 3 a_noblocking
+		XKNI jklmnop 3
+		XKNI q -1
+		stop
+
+	Raise:
+		BOS2 O 8
+		BOS2 NMLKJI  8
+		Goto See
+	}
+}

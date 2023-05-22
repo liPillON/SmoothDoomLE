@@ -1,0 +1,11 @@
+ACTOR SmoothFatShot : FatShot replaces FatShot
+{
+    decal scorch
+    states
+    {
+    death:
+    expl a 3 bright
+    expl bcdef 2 bright
+    stop
+    }
+}

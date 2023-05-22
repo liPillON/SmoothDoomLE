@@ -1,0 +1,41 @@
+actor SmoothPainElemental : PainElemental replaces PainElemental
+{
+	States
+	{
+	Spawn:
+		PAIN A 10 A_Look
+		Loop
+
+	see:
+		SAIN abcdedcb 3 a_chase
+		loop
+
+	Missile:
+		PATT abc 3 a_facetarget
+		PATT d 3 bright a_facetarget
+		PATT e 2 bright a_facetarget
+		PATT e 1 bright a_painattack
+		Goto See
+
+	Pain:
+		PPPP a 4
+		PPPP b 2
+		PPPP b 2 a_pain
+		PPPP c 4 a_pain
+		goto see
+
+	death:
+		SPAI A 5 bright
+		SPAI b 4 bright
+		spai c 4 bright a_scream
+		spai de 4 bright
+		spai fgh 4 bright
+		spai i 3 bright a_paindie
+		spai jk 3 bright
+		stop
+
+	raise:
+		SPAI kigeca 8
+		goto see
+	}
+}

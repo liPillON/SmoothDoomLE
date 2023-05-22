@@ -1,0 +1,59 @@
+pointlight PO_ArachPlas
+{
+    color 0.6 1.0 0.0
+    size 56
+}
+
+flickerlight FL_ArachPlas_X1
+{
+    color 0.4 0.8 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight FL_ArachPlas_X2
+{
+    color 0.6 0.6 0.0
+    size 88
+    secondarySize 96
+    chance 0.3
+}
+
+flickerlight FL_ArachPlas_X3
+{
+    color 0.4 0.4 0.0
+    size 48
+    secondarySize 32
+    chance 0.3
+}
+
+flickerlight FL_ArachPlas_X4
+{
+    color 0.2 0.2 0.0
+    size 24
+    secondarySize 16
+    chance 0.3
+}
+
+object SmoothArachnotronPlasma
+{
+    frame BAPL { light PO_ArachPlas }
+
+    frame GPLDA { light FL_ArachPlas_X1 }
+    frame GPLDB { light FL_ArachPlas_X1 }
+    frame GPLDC { light FL_ArachPlas_X1 }
+    frame GPLDD { light FL_ArachPlas_X2 }
+    frame GPLDE { light FL_ArachPlas_X2 }
+    frame GPLDF { light FL_ArachPlas_X2 }
+    frame GPLDG { light FL_ArachPlas_X3 }
+    frame GPLDH { light FL_ArachPlas_X3 }
+    frame GPLDI { light FL_ArachPlas_X3 }
+    frame GPLDJ { light FL_ArachPlas_X4 }
+    frame GPLDK { light FL_ArachPlas_X4 }
+    frame GPLDL { light FL_ArachPlas_X4 }
+    frame GPLDM { light FL_ArachPlas_X4 }
+}
+
+
+

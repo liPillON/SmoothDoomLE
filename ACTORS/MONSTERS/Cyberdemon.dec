@@ -1,0 +1,40 @@
+ACTOR SmoothCyberdemon : Cyberdemon replaces Cyberdemon
+{
+	states
+	{
+	see:
+		SMCM a 3 a_hoof
+		SMCM bcdef 3 a_chase
+		SMCM g 3 a_metal
+		SMCM h 3 a_chase
+		loop
+
+	missile:
+		SMCS abc 2 a_facetarget
+		SMCS d 3 a_cyberattack
+		SMCS e 3
+		SMCS c 6
+		SMCS abc 4 a_facetarget
+		SMCS d 3 a_cyberattack
+		SMCS e 3
+		SMCS c 6
+		SMCS abc 4 a_facetarget
+		SMCS d 3 a_cyberattack
+		SMCS e 3
+		SMCS c 6
+		goto see
+
+	pain:
+		SMCI a 4 a_pain
+		SMCI bc 3
+		goto see
+
+	death:
+		SMCD a 15
+		SMCD b 5 a_scream
+		SMCD cdefghij 3
+		SMCD k 4 a_noblocking
+		SMCD l 100
+		SMCD l -1 a_bossdeath
+	}
+}

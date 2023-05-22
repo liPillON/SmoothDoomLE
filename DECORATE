@@ -1,0 +1,31 @@
+// MONSTER REPLACEMENTS ////////////////////////////////////////////////////////
+#include "actors/monsters/Arachnotron.dec"
+#include "actors/monsters/Archvile.dec"
+#include "actors/monsters/BaronOfHell.dec"
+#include "actors/monsters/Cacodemon.dec"
+#include "actors/monsters/ChaingunGuy.dec"
+#include "actors/monsters/Cyberdemon.dec"
+#include "actors/monsters/Demon.dec"
+#include "actors/monsters/DoomImp.dec"
+#include "actors/monsters/Fatso.dec"
+#include "actors/monsters/HellKnight.dec"
+#include "actors/monsters/LostSoul.dec"
+#include "actors/monsters/PainElemental.dec"
+#include "actors/monsters/Revenant.dec"
+#include "actors/monsters/ShotgunGuy.dec"
+#include "actors/monsters/Spectre.dec"
+#include "actors/monsters/SpiderMastermind.dec"
+#include "actors/monsters/ZombieMan.dec"
+
+// PROJECTILE REPLACEMENTS /////////////////////////////////////////////////////
+#include "actors/projectiles/ArachnotronPlasma.dec"
+#include "actors/projectiles/ArchvileFire.dec"
+#include "actors/projectiles/BaronBall.dec"
+#include "actors/projectiles/CacodemonBall.dec"
+#include "actors/projectiles/DoomImpBall.dec"
+#include "actors/projectiles/FatShot.dec"
+#include "actors/projectiles/RevenantTracer.dec"
+
+// BLOOD CLASS INHERITANCE /////////////////////////////////////////////////////
+actor BlueBlood : Blood { translation "1:191=200:207","208:255=200:207" }
+actor GreenBlood : Blood { translation "176:191=116:122" }

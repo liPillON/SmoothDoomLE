@@ -1,0 +1,53 @@
+ACTOR SmoothFatso : Fatso replaces Fatso
+{
+	states
+	{
+	see:
+		CRIS abcdefghij 4 a_chase
+		loop
+
+	missile:
+		FATA a 17 a_fatraise
+		FATA b 3
+		FATA c 3 bright a_fatattack1
+		FATA d 3 bright
+		FATA e 4
+		FATA a 7
+		FATA b 3
+		FATA c 3 bright a_fatattack2
+		FATA d 3 bright
+		FATA e 4
+		FATA a 7
+		FATA b 3
+		FATA c 3 bright a_fatattack3
+		FATA d 3 bright
+		FATA e 4
+		FATA a 10
+		goto see
+
+	pain:
+		FAPP a 3
+		FAPP b 3 a_pain
+		goto see
+
+	death:
+		TNT1 a 0 A_JumpIfHealthLower(-30,"xdeath")
+		sman a 3
+		sman b 3 a_Scream
+		sman cde 3
+		SMAN f 3 a_noblocking
+		SMAN ghijklmnop 3
+		SMAN q -1 a_bossdeath
+		stop
+
+	xdeath:
+		FAXD a 3
+		TNT1 a 0 a_playsound ("misc/gibbed")
+		FAXD b 3 a_scream
+		FAXD c 3
+		FAXD d 3 a_noblocking
+		FAXD efgh 3
+		FAXD ijklmno 2
+		FAXD p -1 a_bossdeath
+	}
+}
