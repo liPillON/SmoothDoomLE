@@ -1,3 +1,18 @@
+// PLAYERCLASS REPLACEMENT /////////////////////////////////////////////////////
+ACTOR SmoothPlayer : Doomplayer replaces Doomplayer
+{
+   Player.StartItem "SmoothPistol"
+   Player.StartItem "SmoothFist"
+   Player.StartItem "Clip", 50
+   Player.WeaponSlot 1, SmoothFist, SmoothChainsaw
+   Player.WeaponSlot 2, SmoothPistol
+   Player.WeaponSlot 3, SmoothShotgun, SmoothSuperShotgun
+   Player.WeaponSlot 4, SmoothChaingun
+   Player.WeaponSlot 5, SmoothRocketLauncher
+   Player.WeaponSlot 6, SmoothPlasmaRifle
+   Player.WeaponSlot 7, SmoothBFG9000
+}
+
 // MONSTER REPLACEMENTS ////////////////////////////////////////////////////////
 #include "actors/monsters/Arachnotron.dec"
 #include "actors/monsters/Archvile.dec"
@@ -25,6 +40,17 @@
 #include "actors/projectiles/DoomImpBall.dec"
 #include "actors/projectiles/FatShot.dec"
 #include "actors/projectiles/RevenantTracer.dec"
+
+// WEAPONS REPLACEMENTS ////////////////////////////////////////////////////////
+#include "actors/weapons/BFG9000.dec"
+#include "actors/weapons/Chaingun.dec"
+#include "actors/weapons/Chainsaw.dec"
+#include "actors/weapons/Fist.dec"
+#include "actors/weapons/Pistol.dec"
+#include "actors/weapons/PlasmaRifle.dec"
+#include "actors/weapons/RocketLauncher.dec"
+#include "actors/weapons/Shotgun.dec"
+#include "actors/weapons/SuperShotgun.dec"
 
 // BLOOD CLASS INHERITANCE /////////////////////////////////////////////////////
 actor BlueBlood : Blood { translation "1:191=200:207","208:255=200:207" }
