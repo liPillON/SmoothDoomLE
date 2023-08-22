@@ -1,0 +1,31 @@
+ACTOR SmoothFist : Fist REPLACES Fist
+{
+  States
+  {
+  Ready:
+    PPNG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PPNG A 1 A_Lower
+    Loop
+  Select:
+    PPNG A 1 A_Raise
+    Loop
+  Fire:
+    PKFS L 1
+    PKFS B 1
+    PKFS C 1
+    PKFS D 1
+    PKFS E 2 A_Punch
+    PKFS F 2
+    PKFS G 2
+    PKFS H 2
+    PKFS I 2
+    PKFS J 1
+    PKFS K 1
+    PKFS L 1
+    PKFS A 5 A_ReFire
+    Goto Ready
+  }
+}
+

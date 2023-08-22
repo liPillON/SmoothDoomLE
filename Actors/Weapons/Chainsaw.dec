@@ -1,0 +1,26 @@
+ACTOR SmoothChainsaw : Chainsaw REPLACES Chainsaw
+{
+	States
+	{
+	Ready:
+		PAWG C 1 A_WeaponReady
+		PAWG CDD 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		SAWG E 1 A_WeaponReady
+		SAWG EFF 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Loop
+	Deselect:
+		PAWG C 1 A_Lower
+		Loop
+	Select:
+		PAWG C 1 A_Raise
+		Loop
+	Fire:
+		PAWG A 2 A_Saw
+		PAWG B 2
+		PAWG A 2 A_Saw
+		PAWG B 2
+		PAWG B 0 A_ReFire
+		Goto Ready
+	}
+}
+

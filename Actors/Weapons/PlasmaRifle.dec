@@ -1,0 +1,29 @@
+ACTOR SmoothPlasmaRifle : PlasmaRifle REPLACES PlasmaRifle
+{
+  States
+  {
+  Ready:
+    PPSG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PPSG A 1 A_Lower
+    Loop
+  Select:
+    PPSG A 1 A_Raise
+    Loop
+  Fire:
+    PPSF A 2 Bright A_FirePlasma
+    PPSF B 1 Bright
+	PKPL C 0  A_Refire
+    PKPL C 1
+    PPSG B 14
+    PKPL DC 2
+	PKPL B 1
+    Goto Ready
+  Flash:
+    PPSF A 2 Bright A_Light1
+	PPSF B 1 Bright A_Light1
+    Goto LightDone
+  }
+}
+

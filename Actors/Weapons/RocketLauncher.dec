@@ -1,0 +1,35 @@
+ACTOR SmoothRocketLauncher : RocketLauncher REPLACES RocketLauncher
+{
+  States
+  {
+  Ready:
+    PKRL A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PKRL A 1 A_Lower
+    Loop
+  Select:
+    PKRL A 1 A_Raise
+    Loop
+  Fire:
+    PKRL A 2
+    PKRL A 4 A_GunFlash
+    PKRL B 2
+    PKRL D 3 A_FireMissile
+    PKRL C 3
+    PKRL B 2
+    PKRL E 2
+    PKRL F 1
+    PKRL G 1
+    PKRL A 0 A_ReFire
+    Goto Ready
+  Flash:
+    PKRF A 2 Bright A_Light1
+    PKRF B 2 Bright
+    PKRF C 2 Bright A_Light2
+    PKRF D 2 Bright
+    PKRF E 2 Bright
+    Goto LightDone
+  }
+}
+

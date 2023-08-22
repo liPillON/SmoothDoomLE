@@ -1,0 +1,47 @@
+ACTOR SmoothPistol : Pistol REPLACES Pistol
+{
+  Decal "BulletChip"
+  States
+  {
+  Ready:
+    PKPI A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PKPI A 1 A_Lower
+    Loop
+  Select:
+    PKPI A 1 A_Raise
+    Loop
+  Fire:
+    PKPI A 4
+    PKPI C 2 A_FirePistol
+    PKPI E 3
+    PKPI D 2
+    PKPI B 2
+    PKPI A 1
+    PKPI A 5 A_ReFire
+    Goto Ready
+  Flash:
+    PKPF B 3 Bright A_Light1
+    Goto LightDone
+  Spawn:
+    PIST A -1
+    Stop
+  }
+}
+
+
+ACTOR SmoothPistolPickup : CustomInventory REPLACES Pistol
+{
+	Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
+	Inventory.Pickupsound "misc/w_pkup"
+	States
+	{
+	Spawn:
+		PIST A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Pistol")
+	}
+}
+

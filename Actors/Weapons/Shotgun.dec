@@ -1,0 +1,37 @@
+ACTOR SmoothShotgun : Shotgun REPLACES Shotgun
+{
+  Decal "BulletChip"
+  States
+  {
+    Ready:
+    PKSG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PKSG A 1 A_Lower
+    Loop
+  Select:
+    PKSG A 1 A_Raise
+    Loop
+  Fire:
+    PKSG A 3
+    PKSG A 6 A_FireShotgun
+    PKSG B 2
+	PHTG B 2
+    PKSG E 3
+	PHTG C 3
+	PHTG D 4
+    PKSG G 2
+	PHTG C 3
+	PKSG E 2
+	PHTG B 2
+	PKSG B 2
+    PKSG A 3
+    PKSG A 7 A_ReFire
+    Goto Ready
+  Flash:
+    PHTF B 3 Bright A_Light2
+    PHTF A 2 Bright A_Light1
+    Goto LightDone
+  }
+}
+

@@ -1,0 +1,45 @@
+ACTOR SmoothSuperShotgun : SuperShotgun REPLACES SuperShotgun
+{
+  Decal "BulletChip"
+  States
+  {
+  Ready:
+    PKS2 A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PKS2 A 1 A_Lower
+    Loop
+  Select:
+    PKS2 A 1 A_Raise
+    Loop
+  Fire:
+    PKS2 A 3
+    PKS2 A 6 A_FireShotgun2
+    PKS2 B 2
+    PKS2 C 3
+    PKS2 D 3
+    PKS2 E 5 A_CheckReload
+	PKS2 D 2
+    PKS2 F 3 A_OpenShotgun2
+    PKS2 G 3
+	PKS2 H 2
+	PKS2 J 2
+    PKS2 K 4
+    PKS2 L 2 A_LoadShotgun2
+    PKS2 I 2
+	PKS2 N 1
+	PKS2 O 2
+	PKS2 Q 2
+	PKS2 R 3
+	PKS2 S 1
+    PKS2 S 1 A_CloseShotgun2
+    PKS2 T 5
+    PKS2 T 5 A_ReFire
+    Goto Ready
+  Flash:
+    PKS2 V 3 Bright A_Light2
+    PKS2 U 2 Bright A_Light1
+    Goto LightDone
+  }
+}
+

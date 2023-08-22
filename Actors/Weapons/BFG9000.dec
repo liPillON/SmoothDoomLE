@@ -1,0 +1,32 @@
+ACTOR SmoothBFG9000 : BFG9000 REPLACES BFG9000
+{
+  States
+  {
+  Ready:
+    PFGG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PFGG A 1 A_Lower
+    Loop
+  Select:
+    PFGG A 1 A_Raise
+    Loop
+  Fire:
+    PFGG A 20 A_BFGSound
+    PFGG A 10 A_GunFlash
+    PFGG A 10 A_FireBFG
+    PFGG A 20 A_ReFire
+    Goto Ready
+  Flash:
+    BFGW A 5 Bright
+    BFGX G 2 Bright A_Light1
+    BFGX D 1 Bright
+    BFGX C 1 Bright A_Light2
+    BFGX A 2 Bright A_Light2
+    BFGY A 2 Bright
+    BFGY B 2 Bright
+    BFGY C 1 Bright
+    Goto LightDone
+  }
+}
+

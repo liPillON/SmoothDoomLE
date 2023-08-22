@@ -1,0 +1,39 @@
+ACTOR SmoothChaingun : Chaingun REPLACES Chaingun
+{
+  Decal "BulletChip"
+  States
+  {
+  Ready:
+    PKCG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PKCG A 1 A_Lower
+    Loop
+  Select:
+    PKCG A 1 A_Raise
+    Loop
+  Fire:
+    PKCG A 1 A_FireCGun
+    PKCG BCD 1
+    PKCG A 1 A_FireCGun
+    PKCG BCD 1
+    PKCG B 0 A_ReFire
+    PKCG A 1 A_WeaponReady
+    PKCG BB 1 A_WeaponReady
+    PKCG CCC 1 A_WeaponReady
+    PKCG DDD 1 A_WeaponReady
+    Goto Ready
+  Flash:
+    TNT1 A 0
+    TNT1 A 0 A_Jump(128, 4)
+    PKCF A 1 Bright A_Light1
+    PKCF D 1 Bright A_Light2
+    TNT1 A 2 A_Light1
+    Goto LightDone
+    PKCF C 1 Bright A_Light1
+    PKCF B 1 Bright A_Light2
+    TNT1 A 2 A_Light1
+    Goto LightDone
+   }
+}
+
