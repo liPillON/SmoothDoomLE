@@ -31,3 +31,7 @@ As time passed, I also began standardizing how the mod contents where organized.
 - reorganized the pk3 folders structure
 - merged the Smooth Weapons mod by ScubaSteve
 
+## Downloads:
+- [this](https://github.com/liPillON/SmoothDoomLE/releases/latest) is the latest release.
+- [this](https://github.com/liPillON/SmoothDoomLE/archive/refs/heads/main.zip) is the current repository snapshot.
+
