@@ -1,0 +1,21 @@
+//reference: https://github.com/Tekkish/AmmoInfo/blob/main/source/aiassign.txt
+//colors: https://zdoom.org/wiki/Print#Colors
+
+
+
+//SMOOTH WEAPONS by ScubaSteve /////////////////////////////////////////////////
+Class SmoothPlayer
+
+	//weapons: SmoothPistol, SmoothChaingun
+	Clip, Bullet, u
+
+	//weapons: SmoothShotgun, SmoothSuperShotgun
+	Shell, Shell, g
+
+	//weapons: SmoothRocketLauncher
+	RocketAmmo, Rocket, k
+
+	//weapons: SmoothPlasmaRifle, SmoothBFG9000
+	Cell, Cell, d
+
+

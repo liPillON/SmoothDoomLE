@@ -1,0 +1,11 @@
+//reference: https://github.com/Tekkish/LevelInfo/blob/main/source/liassign.txt
+//colors: https://zdoom.org/wiki/Print#Colors
+
+//SMOOTH WEAPONS by ScubaSteve /////////////////////////////////////////////////
+Class SmoothPlayer
+	PowerStrength, Berserk, berserk, g
+	PowerInvisibility, Hidden, calm, n
+	PowerInvulnerable, Immune, calm, k
+	PowerLightamp, Light, calm, f
+	PowerIronfeet, Suit, calm, d
+
